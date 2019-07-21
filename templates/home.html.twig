@@ -1,0 +1,131 @@
+{% extends "base.html.twig"%}
+{% block title %}BLOG D'AMIRA{% endblock %}
+{% block body %}
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/articleshome">Blog d'Amira</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/articleshome/showall">Mes articles</a></li>
+								<li><a href="/articleshome/create">Ecrire un article</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+						 {% for article in articles %}
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="/articleshome/showone/{{ article.id }}">{{ article.title }}</a></h2>
+										<p>{{ article.smallDescription}}</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">November 1, 2015</time>
+										<a href="#" class="author"><span class="name">Amira Khamassi</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<a href="single.html" class="image featured"><img src="{{ article.thumbnail }}" alt=""/></a>
+								<footer>
+									<ul class="actions">
+										<li><a href="/articleshome/showone/{{ article.id }}" class="button large">Continue Reading</a></li>
+									</ul>
+								</footer>
+							</article>
+						{% endfor %}
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="" class="disabled button large previous">Previous Page</a></li>
+								<li><a href="#" class="button large next">Next Page</a></li>
+							</ul>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>The number of all articles written till now is: <strong>{{ total }}</strong></p>								
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+	</body>
+{% endblock %}

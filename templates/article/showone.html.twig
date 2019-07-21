@@ -1,0 +1,49 @@
+{% extends "base.html.twig"%}
+{% block title %}BLOG D'AMIRA{% endblock %}
+{% block body %}
+<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/articleshome">Blog d'Amira</a></h1>
+						<nav class="links">
+						    <ul>
+								<li><a href="/articleshome/showall">Mes articles</a></li>
+								<li><a href="/articleshome/create">Ecrire un article</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">{{ article.title }}</a></h2>
+										<p>{{ article.smallDescription }}</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">November 1, 2015</time>
+										<a href="#" class="author"><span class="name">Amira Khamassi</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="{{ article.thumbnail }}" alt="" /></span>
+								<p>{{ article.longDescription }}</p>
+							
+							</article>
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+	</body>
+
+{% endblock %}
